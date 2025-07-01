@@ -1,0 +1,10 @@
+diary on
+best_score=0;eps=0;
+[best_eps, best_min_samples, best_score,eps]=my_dbscan(data,activities_dfdf_align_all_tsne_dist2,nPC,activities_dfdf_align_all_tsne_dist_kD);
+{函数或变量 'activities_dfdf_align_all_tsne_dist_kD' 无法识别。
+} 
+load([savepath '\activities_dfdf_align_all'],'activities_dfdf_align_all_tsne_dist2','activities_dfdf_align_all_tsne2','nPC','activities_dfdf_align_all_tsne_dist_kD');
+data=activities_dfdf_align_all_tsne2;
+data=(data-min(data))./(max(data)-min(data));
+data(isnan(data))=0;%data = zscore(data); % 使用zscore函数进行标准化
+diary  dbscanlog.txt
